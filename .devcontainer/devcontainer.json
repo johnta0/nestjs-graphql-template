@@ -24,7 +24,12 @@
 	"postCreateCommand": "yarn install",
 
 	"features": {
-		"git": "latest",
-		"github-cli": "latest"
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": true
+		},
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"version": "latest"
+		}
 	}
 }

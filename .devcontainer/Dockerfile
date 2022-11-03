@@ -5,9 +5,7 @@ FROM node:${VARIANT}
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install \
     wget \
-    curl \
-    vim \
-    less \
+    curl
 
 # Install gcloud CLI
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" \
