@@ -6,23 +6,17 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
-
-	// Configure tool-specific properties.
 	"customizations": {
-		// Configure properties specific to VS Code.
 		"vscode": {
-			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"dbaeumer.vscode-eslint",
 				"rvest.vs-code-prettier-eslint",
-				"seatonjiang.gitmoji-vscode"
+				"seatonjiang.gitmoji-vscode",
+				"prisma.prisma"
 			]
 		}
 	},
-
-	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "yarn install",
-
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {
 			"version": "latest",

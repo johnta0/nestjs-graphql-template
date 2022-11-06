@@ -1,22 +1,41 @@
 import { Injectable } from '@nestjs/common';
-import { CatsArgs } from './dto/cats.args';
-import { Cat } from './models/cat.model';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class CatsService {
-  async create() {
-    return {} as any;
+  constructor(private prisma: PrismaService) {}
+
+  async create(data: Prisma.CatCreateInput) {
+    return this.prisma.cat.create({ data });
   }
 
-  async findOneById(_id: string) {
-    return {} as any;
+  async cat(input: Prisma.CatWhereUniqueInput) {
+    return this.prisma.cat.findUnique({
+      where: input,
+    });
   }
 
-  async findAll(_catsArgs: CatsArgs) {
-    return [] as Cat[];
+  async cats(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.CatWhereUniqueInput;
+    where?: Prisma.CatWhereInput;
+    orderBy?: Prisma.CatOrderByWithRelationInput;
+  }) {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.cat.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      orderBy,
+    });
   }
 
-  async remove(_id: string) {
-    return true;
+  async delete(where: Prisma.CatWhereUniqueInput) {
+    return this.prisma.cat.delete({
+      where,
+    });
   }
 }
