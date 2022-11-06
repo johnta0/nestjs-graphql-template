@@ -5,13 +5,14 @@
 """cat"""
 type Cat {
   id: ID!
+  name: String!
 }
 
 type Mutation {
-  removeCat(id: String!): Boolean!
+  createCat(name: String!): Cat!
+  removeCat(id: Float!): Boolean!
 }
 
 type Query {
-  cat(id: String!): Cat!
   cats(skip: Int = 0, take: Int = 25): [Cat!]!
 }
