@@ -5,10 +5,10 @@ on:
 
 name: Build and Deploy to Cloud Run
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT }}
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   SERVICE: nestjs-graphql
   REGION: asia-northeast1
-  IMAGE_URL: asia.gcr.io/${{ secrets.GCP_PROJECT }}/nestjs-graphql:${{ github.sha }}
+  IMAGE_URL: asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/nestjs-graphql:${{ github.sha }}
 
 jobs:
   deploy:
