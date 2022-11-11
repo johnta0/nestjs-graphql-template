@@ -54,6 +54,6 @@ jobs:
           --project=$PROJECT_ID \
           --region $REGION \
           --image $IMAGE_URL \
-          --allow-unauthenticated
+          --allow-unauthenticated \
           --platform "managed" \
           --quiet
