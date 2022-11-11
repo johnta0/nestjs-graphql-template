@@ -13,6 +13,7 @@ import { CatsModule } from './cats/cats.module';
       driver: ApolloDriver,
       autoSchemaFile: join('schema.gql'),
       sortSchema: true,
+      playground: true,
       introspection: true, // *caution* : set this to false on production
     }),
     CatsModule,
